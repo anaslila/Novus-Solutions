@@ -52,9 +52,9 @@ const masterpieces = [
             }
         ],
         projectDetails: "ThynkPOS was developed to solve real-world restaurant management challenges. The system handles everything from order taking to payment processing, with special focus on Indian market requirements including GST billing, multiple payment methods, and regional language support. The PWA architecture ensures the system works seamlessly even during internet outages, a critical feature for busy restaurants."
-    },
-    {
-        website: "https://resumefy-cv.vercel.app",
+    },    
+{
+        website: "resumyfy-cv.vercel.app",
         name: "Resumefy",
         logo: "https://i.postimg.cc/9Q0d7211/image.png",
         description: "Join thousands of job seekers who trust Resumefy to create professional resumes that stand out.",
@@ -84,16 +84,16 @@ const masterpieces = [
         projectDetails: "Professional Resume Builder • Lifetime Free • No Watermarks"
     },
     {
-        website: "immersia.vercel.app",
-        name: "Immersia System",
-        logo: "https://i.postimg.cc/bw6xbr3W/Imersia-Logo-1.png",
+        website: "imersia.vercel.app",
+        name: "Imersia Inventory",
+        logo: "https://i.postimg.cc/8z86tFFg/imersia.png",
         description: "Advanced inventory and warehouse management system built for modern businesses.",
-        fullDescription: "Immersia System is a smart, web-based inventory and warehouse management platform crafted for retail, wholesale, and manufacturing businesses. It simplifies stock control, purchase and sales tracking, supplier and customer management, and reporting — all in a clean, intuitive interface. With real-time updates, barcode integration, and powerful analytics, Immersia helps businesses stay organized and in control of their entire inventory flow.",
+        fullDescription: "Imersia Inventory is a smart, web-based inventory and warehouse management platform crafted for retail, wholesale, and manufacturing businesses. It simplifies stock control, purchase and sales tracking, supplier and customer management, and reporting — all in a clean, intuitive interface. With real-time updates, barcode integration, and powerful analytics, Imersia helps businesses stay organized and in control of their entire inventory flow.",
         publishedDate: "10-10-2025",
         lastUpdated: "10-10-2025",
         category: "Web App",
         status: "Live",
-        version: "1.2.6",
+        version: "1.0",
         developer: "AL Software",
         tags: ["POS", "Sales", "Billing", "Inventory", "Management"],
         technologies: ["HTML5", "CSS3", "JavaScript", "PWA", "IndexedDB", "LocalStorage"],
@@ -131,7 +131,7 @@ features: [
             description: "Access and manage inventory data from any device"
         }
     ],
-    projectDetails: "Immersia System was created to help businesses of all sizes manage their inventory operations effortlessly. The system offers real-time visibility of stock levels, smart alerts for reordering, and easy integration with barcode systems. Its Progressive Web App (PWA) build ensures fast performance, offline functionality, and easy installation across devices. Designed for accuracy and efficiency, Immersia is the backbone of modern inventory management."
+    projectDetails: "Imersia Inventory was created to help businesses of all sizes manage their inventory operations effortlessly. The system offers real-time visibility of stock levels, smart alerts for reordering, and easy integration with barcode systems. Its Progressive Web App (PWA) build ensures fast performance, offline functionality, and easy installation across devices. Designed for accuracy and efficiency, Imersia is the backbone of modern inventory management."
 },
     {
         website: "primebooks.vercel.app",
@@ -783,9 +783,4 @@ console.log('%c Masters.js v2.7 Experia Loaded ', 'background: #000; color: #0f0
 console.log('%c Total Masterpieces: ' + masterpieces.length, 'font-weight: bold; font-size: 14px;');
 console.log('%c Last Updated: 04-10-2025 ', 'color: #666; font-size: 12px;');
 console.log('%c Director: Anas Lila - AL Software ', 'color: #0066cc; font-weight: bold; font-size: 12px;');
-
 console.log('%c Font: Trebuchet MS | Design: No Gaps (Seamless Grid) ', 'color: #0066cc; font-size: 11px;');
-
-
-
-
