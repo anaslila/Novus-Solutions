@@ -3,491 +3,1507 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NOVUS Solutions - Transform Your Ideas Into Digital Reality. Professional web development, mobile apps, and custom software solutions.">
-    <meta name="keywords" content="web development, mobile apps, software solutions, NOVUS Solutions, custom software, digital transformation">
-    <meta name="theme-color" content="#32526a">
-    <meta name="author" content="NOVUS Solutions">
+    <title>NOVUS Solutions | Next-Gen Enterprise Engineering House</title>
     
-    <title>NOVUS Solutions - Transform Your Ideas Into Digital Reality</title>
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/8cJS2MWh/FD219596-1656-4911-9FD9-CC643EDA56A9.png">
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/0rRLh399/16925846-99BD-43BD-A1D4-1E93B161A443.jpg">
-    
-    <!-- Manifest -->
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/8cJS2MWh/FD219596-1656-4911-9FD9-CC643EDA56A9.png">
     <link rel="manifest" href="manifest.json">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-primary: #32526a;
+            --brand-accent: #6cccbd;
+            --brand-gradient: linear-gradient(135deg, #32526a 0%, #4a7b9f 50%, #6cccbd 100%);
+            --bg-canvas: #fafbfc;
+            --bg-surface: rgba(255, 255, 255, 0.75);
+            --border-fluid: rgba(15, 23, 42, 0.08);
+            --text-prime: #0b0f19;
+            --text-subtle: #64748b;
+            --radius-soft: 16px;
+            --radius-deep: 24px;
+            --glow-premium: 0 20px 40px -15px rgba(50, 82, 106, 0.07);
+            --transition-fluid: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-prime);
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Next-Gen Floating Header Architectural Matrix (Top Strip Removed, Floats Closer to Top Edge) */
+        .header {
+            position: fixed;
+            top: 16px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-fluid);
+        }
+
+        .header-glass-wrapper {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-fluid);
+            border-radius: var(--radius-soft);
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-fluid);
+        }
+
+        .header.scrolled {
+            top: 12px;
+        }
+
+        .header.scrolled .header-glass-wrapper {
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: var(--glow-premium);
+            padding: 10px 24px;
+        }
+
+        .logo-frame img {
+            height: 32px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .navbar-item-link {
+            color: var(--text-subtle);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition-fluid);
+        }
+
+        .navbar-item-link:hover {
+            color: var(--brand-primary);
+        }
+
+        /* Elite Fluid Action Trigger Controls */
+        .btn-fluid {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--radius-soft);
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition-fluid);
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .btn-prime {
+            background: var(--brand-primary);
+            color: #ffffff;
+            box-shadow: 0 4px 20px -4px rgba(50, 82, 106, 0.25);
+        }
+
+        .btn-prime:hover {
+            background: #233b4d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px -4px rgba(50, 82, 106, 0.35);
+        }
+
+        .btn-sec {
+            background: #ffffff;
+            color: var(--brand-primary);
+            border: 1px solid var(--border-fluid);
+        }
+
+        .btn-sec:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            border-color: rgba(15, 23, 42, 0.15);
+        }
+
+        /* Immersive Premium White-Canvas Hero Section */
+        .hero-canvas {
+            padding: 180px 0 120px 0;
+            background: radial-gradient(circle at 80% 20%, rgba(108, 204, 189, 0.08) 0%, rgba(250, 251, 252, 0) 50%);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-layout-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        /* GenZ Corporate Metric Alert Capsule */
+        .alert-console-capsule {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(50, 82, 106, 0.05);
+            border: 1px solid rgba(50, 82, 106, 0.08);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .capsule-badge {
+            background: var(--brand-primary);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .capsule-string {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--brand-primary);
+        }
+
+        .hero-canvas h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            color: var(--text-prime);
+        }
+
+        .hero-canvas h1 span {
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-canvas p {
+            font-size: 18px;
+            color: var(--text-subtle);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 580px;
+        }
+
+        /* Glassmorphic Mockup Matrix Component */
+        .hero-visual-frame {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glass-mockup-window {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-deep);
+            box-shadow: 0 40px 80px -20px rgba(15, 23, 42, 0.08);
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            transition: var(--transition-fluid);
+        }
+
+        .glass-mockup-window:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 50px 100px -20px rgba(15, 23, 42, 0.12);
+        }
+
+        .glass-mockup-window img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Next-Gen Global Section Framework Setup */
+        .section-space {
+            padding: 120px 0;
+        }
+
+        .section-title-wrapper {
+            margin-bottom: 64px;
+        }
+
+        .section-title-wrapper h2 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-prime);
+            margin-bottom: 12px;
+        }
+
+        .section-title-wrapper p {
+            color: var(--text-subtle);
+            font-size: 16px;
+        }
+
+        /* Interactive Masterpieces Fluid Grid Deck Layout */
+        .masterpieces-fluid-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 32px;
+        }
+
+        .masterpiece-fluid-card {
+            background: var(--bg-surface);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-fluid);
+            border-radius: var(--radius-deep);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--glow-premium);
+            transition: var(--transition-fluid);
+        }
+
+        .masterpiece-fluid-card:hover {
+            transform: translateY(-6px);
+            background: #ffffff;
+            border-color: rgba(15, 23, 42, 0.12);
+            box-shadow: 0 30px 60px -15px rgba(50, 82, 106, 0.12);
+        }
+
+        .card-upper-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .app-branding-node {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .app-avatar-img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-soft);
+            object-fit: contain;
+            border: 1px solid var(--border-fluid);
+            padding: 4px;
+            background: #ffffff;
+        }
+
+        .app-name-block h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-prime);
+        }
+
+        .app-type-badge {
+            font-size: 11px;
+            color: var(--text-subtle);
+            font-weight: 600;
+        }
+
+        .sprint-live-badge {
+            background: rgba(22, 163, 74, 0.08);
+            color: #16a34a;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+
+        .fluid-card-desc {
+            color: var(--text-subtle);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            min-height: 72px;
+        }
+
+        .architecture-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(15, 23, 42, 0.04);
+        }
+
+        .tech-pill-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--brand-primary);
+            background: rgba(50, 82, 106, 0.04);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        /* Next-Gen Soft Infrastructure Matrices Blocks */
+        .infrastructure-fluid-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .infrastructure-fluid-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-fluid);
+            border-radius: var(--radius-deep);
+            padding: 32px;
+            box-shadow: var(--glow-premium);
+            transition: var(--transition-fluid);
+        }
+
+        .infrastructure-fluid-card:hover {
+            transform: translateY(-4px);
+            background: #ffffff;
+        }
+
+        .infrastructure-fluid-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-prime);
+        }
+
+        .infrastructure-fluid-card p {
+            font-size: 14px;
+            color: var(--text-subtle);
+            line-height: 1.6;
+        }
+
+        /* Integrated Standalone Action Interface Deck Panel Row */
+        .standalone-integration-panel {
+            background: #ffffff;
+            border: 1px solid var(--border-fluid);
+            border-radius: var(--radius-deep);
+            padding: 40px;
+            margin-top: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--glow-premium);
+        }
+
+        .integration-panel-info h3 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+
+        .integration-panel-info p {
+            font-size: 14px;
+            color: var(--text-subtle);
+        }
+
+        /* Director Executive Leadership Board Component */
+        .executive-board-grid {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .executive-director-card {
+            background: #ffffff;
+            border: 1px solid var(--border-fluid);
+            border-radius: var(--radius-deep);
+            padding: 48px;
+            max-width: 680px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            box-shadow: var(--glow-premium);
+            transition: var(--transition-fluid);
+        }
+
+        .executive-director-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 40px 80px -20px rgba(50, 82, 106, 0.1);
+        }
+
+        .director-portrait-frame {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+        }
+
+        .director-img-node {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            box-shadow: 0 10px 30px rgba(50, 82, 106, 0.15);
+        }
+
+        .director-portrait-frame::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: var(--brand-gradient);
+            z-index: -1;
+        }
+
+        .director-details-block h4 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-prime);
+            margin-bottom: 4px;
+        }
+
+        .director-title-string {
+            font-size: 13px;
+            color: var(--brand-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+        }
+
+        .director-biography-string {
+            font-size: 14px;
+            color: var(--text-subtle);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .director-hq-badge {
+            display: inline-flex;
+            font-size: 11px;
+            font-weight: 700;
+            background: #f1f5f9;
+            color: var(--text-subtle);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        /* Next-Gen Soft Minimal Footer Array */
+        .footer-layer {
+            background: #ffffff;
+            padding: 80px 0 40px 0;
+            border-top: 1px solid var(--border-fluid);
+        }
+
+        .footer-grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 64px;
+            margin-bottom: 64px;
+        }
+
+        .footer-brand-info p {
+            color: var(--text-subtle);
+            max-width: 360px;
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-connections-links h4 {
+            color: var(--text-prime);
+            margin-bottom: 16px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .footer-connections-links ul {
+            list-style: none;
+        }
+
+        .footer-connections-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-connections-links ul li a {
+            color: var(--text-subtle);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition-fluid);
+        }
+
+        .footer-connections-links ul li a:hover {
+            color: var(--brand-primary);
+        }
+
+        .footer-bottom-baseline {
+            padding-top: 32px;
+            border-top: 1px solid var(--border-fluid);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-subtle);
+            font-weight: 500;
+        }
+
+        /* ===================================================================
+           ULTRA-FLUID SOFT-CORNERED MODAL STEPPER INTENSIFIER INTAKE WIZARD
+           =================================================================== */
+        .modal-overlay-node {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            background-color: rgba(11, 15, 25, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-fluid);
+            padding: 24px;
+        }
+
+        .modal-overlay-node.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-fluid-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 680px;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-deep);
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 50px 100px -20px rgba(11, 15, 25, 0.15);
+            transform: scale(0.96) translateY(10px);
+            transition: var(--transition-fluid);
+        }
+
+        .modal-overlay-node.active .modal-fluid-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close-trigger {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: #f1f5f9;
+            border: none;
+            color: var(--text-prime);
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fluid);
+        }
+
+        .modal-close-trigger:hover {
+            background: #e2e8f0;
+        }
+
+        .fluid-alert-banner {
+            display: none;
+            background-color: #fef2f2;
+            border: 1px solid #fca5a5;
+            color: #b91c1c;
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            border-radius: var(--radius-soft);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Success Visual Integration Screen State */
+        .success-panel-overlay {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 32px 0;
+        }
+
+        .success-lottie-mock-icon {
+            width: 56px;
+            height: 56px;
+            background-color: #f0fdf4;
+            color: #16a34a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            box-shadow: 0 10px 20px rgba(22, 163, 74, 0.1);
+        }
+
+        .success-panel-overlay h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        /* Stepper Engine Wizard Structural States */
+        .form-step-node {
+            display: none;
+        }
+
+        .form-step-node.active {
+            display: block;
+        }
+
+        .wizard-progress-strip {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            background: #f8fafc;
+            padding: 12px 20px;
+            border-radius: var(--radius-soft);
+            border: 1px solid var(--border-fluid);
+        }
+
+        .progress-indicator-text {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .progress-indicator-text.active {
+            color: var(--brand-primary);
+        }
+
+        .step-segment-header-title {
+            font-size: 15px;
+            color: var(--text-prime);
+            margin-bottom: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid var(--border-fluid);
+            padding-bottom: 8px;
+        }
+
+        .form-structural-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .input-group-element, .input-group-element-full {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: relative;
+        }
+
+        .input-group-element-full {
+            grid-column: span 2;
+            margin-bottom: 16px;
+        }
+
+        .input-group-element label, .input-group-element-full label {
+            font-size: 11px;
+            color: var(--text-prime);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .input-group-element input, .input-group-element textarea,
+        .input-group-element-full input, .input-group-element-full textarea {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-fluid);
+            border-radius: var(--radius-soft);
+            padding: 12px 16px;
+            color: var(--text-prime);
+            font-family: inherit;
+            font-size: 14px;
+            transition: var(--transition-fluid);
+        }
+
+        .input-group-element input:focus, .input-group-element textarea:focus,
+        .input-group-element-full input:focus, .input-group-element-full textarea:focus {
+            outline: none;
+            background-color: #ffffff;
+            border-color: rgba(50, 82, 106, 0.3);
+            box-shadow: 0 0 0 4px rgba(50, 82, 106, 0.05);
+        }
+
+        /* TYPEABLE SEARCH FILTER PILL SELECT SYSTEM HOOKS */
+        .typeable-dropdown-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .typeable-input-element {
+            width: 100%;
+            padding-right: 36px !important;
+        }
+
+        .dropdown-caret-marker {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 10px;
+            color: var(--text-subtle);
+        }
+
+        .dropdown-floating-list-panel {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid var(--border-fluid);
+            border-radius: var(--radius-soft);
+            z-index: 2500;
+            max-height: 180px;
+            overflow-y: auto;
+            display: none;
+            box-shadow: 0 20px 40px rgba(11, 15, 25, 0.08);
+        }
+
+        .dropdown-option-row-item {
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-prime);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.02);
+            transition: var(--transition-fluid);
+        }
+
+        .dropdown-option-row-item:hover {
+            background-color: #f8fafc;
+            color: var(--brand-primary);
+        }
+
+        .wizard-action-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-fluid);
+        }
+
+        /* Responsive Layout Matrix Settings */
+        @media (max-width: 992px) {
+            .hero-layout-grid { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+            .alert-capsule-center { justify-content: center; }
+            .hero-canvas p { margin: 0 auto 40px auto; }
+            .navbar-links { display: none; }
+            .form-structural-row { grid-template-columns: 1fr; }
+            .input-group-element-full { grid-column: span 1; }
+            .hero-canvas h1 { font-size: 42px; }
+            .executive-director-card { flex-direction: column; text-align: center; gap: 24px; padding: 32px; }
+            .standalone-integration-panel { flex-direction: column; gap: 24px; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Header -->
+
     <header class="header">
         <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <a href="#home">
-                        <img src="https://i.postimg.cc/C5t2k2Rh/IMG-0038.png" alt="NOVUS Solutions" class="logo-img">
-                    </a>
-                </div>
-                <nav class="nav-menu">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#why-us" class="nav-link">Why Us</a>
-                    <a href="#process" class="nav-link">Our Process</a>
-                    <a href="#contact" class="nav-link cta-nav">Get Free Quote</a>
+            <div class="header-glass-wrapper">
+                <a href="#home" class="logo-frame">
+                    <img src="https://i.postimg.cc/C5t2k2Rh/IMG-0038.png" alt="NOVUS Solutions Premium Typography Branding Logo Base">
+                </a>
+                <nav class="navbar-links">
+                    <a href="#home" class="navbar-item-link">Home</a>
+                    <a href="#deployments" class="navbar-item-link">Deployments</a>
+                    <a href="#infrastructure" class="navbar-item-link">Architecture</a>
+                    <a href="#leadership" class="navbar-item-link">Leadership</a>
+                    <button onclick="openIntakeWizard()" class="btn-fluid btn-prime">Initialize Blueprint</button>
                 </nav>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-content">
-            <button class="close-menu" onclick="toggleMobileMenu()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="#32526a" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-            <a href="#home" class="mobile-link" onclick="toggleMobileMenu()">Home</a>
-            <a href="#services" class="mobile-link" onclick="toggleMobileMenu()">Services</a>
-            <a href="#why-us" class="mobile-link" onclick="toggleMobileMenu()">Why Us</a>
-            <a href="#process" class="mobile-link" onclick="toggleMobileMenu()">Our Process</a>
-            <a href="#contact" class="mobile-link cta-mobile" onclick="toggleMobileMenu()">Get Free Quote</a>
-        </div>
-    </div>
-
-    <!-- Hero Section with Particles Animation -->
-    <section class="hero" id="home">
-        <div class="particles-bg"></div>
+    <section id="home" class="hero-canvas">
         <div class="container">
-            <div class="hero-content animate-fade-up">
-                <h1 class="hero-title">Transform Your Ideas Into <span class="highlight-text">Digital Reality</span></h1>
-                <p class="hero-subtitle">Custom software solutions that drive growth, enhance efficiency, and deliver exceptional user experiences. From concept to deployment, we bring your vision to life.</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary btn-glow" onclick="openContactModal()">
-                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Start Your Project
-                    </button>
-                    <a href="#services" class="btn btn-secondary">
-                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M4 4H20M4 12H20M4 20H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        Explore Services
-                    </a>
+            <div class="hero-layout-grid">
+                <div class="hero-text-content">
+                    
+                    <div style="display: flex;" class="alert-capsule-center">
+                        <div class="alert-console-capsule">
+                            <span class="capsule-badge">Release Note</span>
+                            <span class="capsule-string">Upgraded to v3.1 Framework Matrix</span>
+                        </div>
+                    </div>
+
+                    <h1>Custom Systems & <br><span>Digital Engineering</span></h1>
+                    <p>We develop high-performance single-file operational systems, enterprise tracking portals, and robust cloud data synchronization engines optimized for scale with extreme aesthetic clarity.</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: inherit;">
+                        <button onclick="openIntakeWizard()" class="btn-fluid btn-prime">Initialize Product Intake</button>
+                        <a href="#deployments" class="btn-fluid btn-sec">Explore Deployments</a>
+                    </div>
                 </div>
-                <div class="hero-stats animate-fade-up-delay">
-                    <div class="stat-box">
-                        <div class="stat-number" data-target="100">0</div>
-                        <div class="stat-label">Projects Delivered</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number" data-target="95">0</div>
-                        <div class="stat-label">Client Satisfaction</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number" data-target="24">0</div>
-                        <div class="stat-label">24/7 Support</div>
+                
+                <div class="hero-visual-frame">
+                    <div class="glass-mockup-window">
+                        <img src="https://img.magnific.com/free-vector/blue-futuristic-networking-technology_53876-97395.jpg" alt="Premium Modern Technical Interface Vector Frame Grid UI">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <section id="deployments" class="section-space" style="background-color: #ffffff;">
         <div class="container">
-            <div class="section-header animate-fade-up">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive digital solutions that transform businesses</p>
+            <div class="section-title-wrapper">
+                <h2>Our Featured Masterpieces</h2>
+                <p>An elite collection of operational production hubs, custom commercial dashboards, and live pipeline systems deployed across active enterprises.</p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card animate-fade-up" style="animation-delay: 0.1s">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9 22V12H15V22" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+            <div class="masterpieces-fluid-grid">
+                <div class="masterpiece-fluid-card">
+                    <div>
+                        <div class="card-upper-meta">
+                            <div class="app-branding-node">
+                                <img src="https://i.postimg.cc/yxhgMHKq/Untitled-design-1.png" class="app-avatar-img" alt="Application POS Icon Frame">
+                                <div class="app-name-block">
+                                    <h3>ThynkPOS</h3>
+                                    <span class="app-type-badge">PWA Ecosystem</span>
+                                </div>
+                            </div>
+                            <span class="sprint-live-badge">v1.81 Live</span>
+                        </div>
+                        <p class="fluid-card-desc">Comprehensive restaurant billing and point-of-sale management framework built with robust local data cache configurations for network fallback protection metrics loops.</p>
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Responsive, fast, and SEO-optimized websites that convert visitors into customers</p>
-                    <ul class="service-features">
-                        <li>Corporate Websites</li>
-                        <li>E-commerce Platforms</li>
-                        <li>Progressive Web Apps</li>
-                        <li>Custom Web Solutions</li>
-                    </ul>
-                    <div class="service-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#32526a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="service-card animate-fade-up" style="animation-delay: 0.2s">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
-                            <rect x="5" y="2" width="14" height="20" rx="2" stroke="#6cccbd" stroke-width="2"/>
-                            <path d="M12 18H12.01" stroke="#6cccbd" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Mobile Apps</h3>
-                    <p>Native and cross-platform mobile applications for iOS and Android</p>
-                    <ul class="service-features">
-                        <li>iOS Development</li>
-                        <li>Android Development</li>
-                        <li>React Native Apps</li>
-                        <li>App Maintenance</li>
-                    </ul>
-                    <div class="service-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#32526a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <div>
+                        <div class="architecture-tags-row">
+                            <span class="tech-pill-badge">Vanilla JS</span>
+                            <span class="tech-pill-badge">IndexedDB</span>
+                            <span class="tech-pill-badge">PWA Architecture</span>
+                        </div>
+                        <a href="https://thynkpos.vercel.app" target="_blank" class="btn-fluid btn-sec" style="width: 100%;">Launch System Node</a>
                     </div>
                 </div>
 
-                <div class="service-card animate-fade-up" style="animation-delay: 0.3s">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="#6cccbd" stroke-width="2"/>
-                            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="#6cccbd" stroke-width="2"/>
-                        </svg>
+                <div class="masterpiece-fluid-card">
+                    <div>
+                        <div class="card-upper-meta">
+                            <div class="app-branding-node">
+                                <img src="https://i.postimg.cc/SNpkGdHY/image.png" class="app-avatar-img" alt="Application ERP Unit Icon Frame">
+                                <div class="app-name-block">
+                                    <h3>MRM-ERP</h3>
+                                    <span class="app-type-badge">Enterprise Engine</span>
+                                </div>
+                            </div>
+                            <span class="sprint-live-badge" style="background: rgba(50,82,106,0.06); color: var(--brand-primary);">v4.0 Sprint</span>
+                        </div>
+                        <p class="fluid-card-desc">High-end architecture organizing distributed multi-department material catalogs, automated balance calculations ledger books, and transaction tracking flows nodes.</p>
                     </div>
-                    <h3>Business Software</h3>
-                    <p>Custom ERP, CRM, and management systems tailored to your business</p>
-                    <ul class="service-features">
-                        <li>ERP Systems</li>
-                        <li>CRM Solutions</li>
-                        <li>Inventory Management</li>
-                        <li>POS Systems</li>
-                    </ul>
-                    <div class="service-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#32526a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="service-card animate-fade-up" style="animation-delay: 0.4s">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 17L12 22L22 17" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 12L12 17L22 12" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>UI/UX Design</h3>
-                    <p>Beautiful, intuitive designs that enhance user experience and engagement</p>
-                    <ul class="service-features">
-                        <li>UI Design</li>
-                        <li>UX Research</li>
-                        <li>Prototyping</li>
-                        <li>Brand Identity</li>
-                    </ul>
-                    <div class="service-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#32526a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="service-card animate-fade-up" style="animation-delay: 0.5s">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
-                            <circle cx="11" cy="11" r="8" stroke="#6cccbd" stroke-width="2"/>
-                            <path d="M21 21L16.65 16.65" stroke="#6cccbd" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M11 8V14" stroke="#6cccbd" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M8 11H14" stroke="#6cccbd" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Data-driven marketing strategies that maximize ROI and brand visibility</p>
-                    <ul class="service-features">
-                        <li>SEO Optimization</li>
-                        <li>Social Media Marketing</li>
-                        <li>Content Marketing</li>
-                        <li>PPC Campaigns</li>
-                    </ul>
-                    <div class="service-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#32526a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="service-card animate-fade-up" style="animation-delay: 0.6s">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#6cccbd" stroke-width="2"/>
-                            <path d="M12 16V12M12 8H12.01" stroke="#6cccbd" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Support & Maintenance</h3>
-                    <p>Ongoing support and maintenance to keep your systems running smoothly</p>
-                    <ul class="service-features">
-                        <li>24/7 Support</li>
-                        <li>Bug Fixes</li>
-                        <li>Updates & Upgrades</li>
-                        <li>Performance Monitoring</li>
-                    </ul>
-                    <div class="service-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#32526a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <div>
+                        <div class="architecture-tags-row">
+                            <span class="tech-pill-badge">REST API Core</span>
+                            <span class="tech-pill-badge">ES6 Vanilla</span>
+                            <span class="tech-pill-badge">Cloud Sync Engine</span>
+                        </div>
+                        <button onclick="openIntakeWizard()" class="btn-fluid btn-sec" style="width: 100%;">Request Pipeline Audit</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-us" id="why-us">
+    <section id="infrastructure" class="section-space">
         <div class="container">
-            <div class="section-header animate-fade-up">
-                <h2 class="section-title">Why Choose NOVUS Solutions?</h2>
-                <p class="section-subtitle">We deliver excellence through innovation and dedication</p>
+            <div class="section-title-wrapper">
+                <h2>Infrastructure Standards</h2>
+                <p>Every software instance conform strictly to enterprise performance benchmarks, ensuring zero execution drag and high runtime reliability factors.</p>
+            </div>
+            
+            <div class="infrastructure-fluid-grid">
+                <div class="infrastructure-fluid-card">
+                    <h4>Progressive Web App Integration</h4>
+                    <p>Native-feeling terminal installations on device application layers, completely bypassing traditional web browser navigation bars constraints blocks.</p>
+                </div>
+                <div class="infrastructure-fluid-card">
+                    <h4>Cross-Origin Database Sync</h4>
+                    <p>Secured background transport engines binding customer interfaces safely with cloud records clusters like customized Google Workspace sheets macros arrays.</p>
+                </div>
+                <div class="infrastructure-fluid-card">
+                    <h4>Rigid Logical Traps</h4>
+                    <p>Advanced real-time field evaluation algorithms capturing script data anomalies immediately to block client-side application state failure.</p>
+                </div>
             </div>
 
-            <div class="why-grid">
-                <div class="why-card animate-fade-up" style="animation-delay: 0.1s">
-                    <div class="why-icon-wrapper">
-                        <svg class="why-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
-                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Lightning Fast Delivery</h3>
-                    <p>Quick turnaround times without compromising on quality or attention to detail</p>
+            <div class="standalone-integration-panel">
+                <div class="integration-panel-info">
+                    <h3>Deploy Standalone Framework Node</h3>
+                    <p>Launch this terminal container directly inside your operating environment for optimal network-independent system response.</p>
                 </div>
-
-                <div class="why-card animate-fade-up" style="animation-delay: 0.2s">
-                    <div class="why-icon-wrapper">
-                        <svg class="why-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="#6cccbd" stroke-width="2"/>
-                            <path d="M12 6V12L16 14" stroke="#6cccbd" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Cost-Effective Solutions</h3>
-                    <p>Competitive pricing with flexible payment options that fit your budget</p>
-                </div>
-
-                <div class="why-card animate-fade-up" style="animation-delay: 0.3s">
-                    <div class="why-icon-wrapper">
-                        <svg class="why-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
-                            <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.7088 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#6cccbd" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M22 4L12 14.01L9 11.01" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Tailored to Perfection</h3>
-                    <p>Custom-built solutions that match your exact business requirements</p>
-                </div>
-
-                <div class="why-card animate-fade-up" style="animation-delay: 0.4s">
-                    <div class="why-icon-wrapper">
-                        <svg class="why-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#6cccbd" stroke-width="2"/>
-                            <path d="M9 12L11 14L15 10" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Quality Guaranteed</h3>
-                    <p>Rigorous testing and quality assurance for bug-free deployment</p>
-                </div>
-
-                <div class="why-card animate-fade-up" style="animation-delay: 0.5s">
-                    <div class="why-icon-wrapper">
-                        <svg class="why-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
-                            <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.19 12.85C3.49997 10.2412 2.44824 7.27099 2.12 4.17999C2.095 3.90344 2.12787 3.62474 2.21649 3.3616C2.30512 3.09846 2.44756 2.85666 2.63476 2.6516C2.82196 2.44653 3.0498 2.28268 3.30379 2.1705C3.55777 2.05831 3.83233 2.00024 4.11 1.99999H7.11C7.59531 1.9952 8.06579 2.16705 8.43376 2.48351C8.80173 2.79996 9.04207 3.23945 9.11 3.71999C9.23662 4.68007 9.47144 5.6227 9.81 6.52999C9.94455 6.88793 9.97366 7.27692 9.8939 7.65088C9.81415 8.02483 9.62886 8.36809 9.36 8.63999L8.09 9.90999C9.51355 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9752 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5285 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>24/7 Dedicated Support</h3>
-                    <p>Always available to assist you whenever you need help or guidance</p>
-                </div>
-
-                <div class="why-card animate-fade-up" style="animation-delay: 0.6s">
-                    <div class="why-icon-wrapper">
-                        <svg class="why-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
-                            <rect x="3" y="11" width="18" height="11" rx="2" stroke="#6cccbd" stroke-width="2"/>
-                            <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Enterprise-Grade Security</h3>
-                    <p>Advanced security measures to protect your data and ensure privacy</p>
-                </div>
+                <button class="btn-fluid btn-prime" id="pwaInstallSystemBtn">Install Desktop Software App</button>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process-section" id="process">
+    <section id="leadership" class="section-space" style="background-color: #ffffff;">
         <div class="container">
-            <div class="section-header animate-fade-up">
-                <h2 class="section-title">Our Process</h2>
-                <p class="section-subtitle">How we turn your vision into reality</p>
+            <div class="section-title-wrapper" style="text-align: center;">
+                <h2>Executive Board & Direction</h2>
+                <p>The core managing authority driving complex, technical execution programs and high-end software development roadmaps across administrative enterprise channels.</p>
             </div>
-
-            <div class="process-timeline">
-                <div class="process-step animate-fade-up" style="animation-delay: 0.1s">
-                    <div class="process-content">
-                        <h3>Discovery & Planning</h3>
-                        <p>We understand your requirements, goals, and target audience to create a strategic roadmap</p>
+            
+            <div class="executive-board-grid">
+                <div class="executive-director-card">
+                    <div class="director-portrait-frame">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFFa-w2l5oI1w/profile-displayphoto-scale_400_400/B4DZ4mEii2HoAg-/0/1778755185098?e=1783555200&v=beta&t=jXh9zI-e6v0c8cP-xCHp32oMdvK2QJ0pZqTYlxLw4p0" class="director-img-node" alt="Executive Portrait of Director Anas Lila">
                     </div>
-                    <div class="process-number">01</div>
-                </div>
-
-                <div class="process-step animate-fade-up" style="animation-delay: 0.2s">
-                    <div class="process-number">02</div>
-                    <div class="process-content">
-                        <h3>Design & Prototype</h3>
-                        <p>Creating wireframes and prototypes to visualize your project before development begins</p>
-                    </div>
-                </div>
-
-                <div class="process-step animate-fade-up" style="animation-delay: 0.3s">
-                    <div class="process-content">
-                        <h3>Development & Testing</h3>
-                        <p>Building your solution with clean code, rigorous testing, and quality assurance</p>
-                    </div>
-                    <div class="process-number">03</div>
-                </div>
-
-                <div class="process-step animate-fade-up" style="animation-delay: 0.4s">
-                    <div class="process-number">04</div>
-                    <div class="process-content">
-                        <h3>Launch & Support</h3>
-                        <p>Deploying your project and providing ongoing support to ensure continued success</p>
+                    <div class="director-details-block">
+                        <h4>Anas Lila</h4>
+                        <div class="director-title-string">Director of Engineering & Sales Architecture</div>
+                        <p class="director-biography-string">Bringing a comprehensive MBA program background combined with deep engineering execution expertise, Anas dictates product delivery roadmaps for advanced operational portals, localized data utility dashboards, and secure single-file administrative platforms.</p>
+                        <div class="director-hq-badge">Mumbai Corporate Headquarters Node</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <footer class="footer-layer">
         <div class="container">
-            <div class="cta-content animate-fade-up">
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Let's discuss your project and create something amazing together</p>
-                <button class="btn btn-primary btn-large btn-glow" onclick="openContactModal()">
-                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Get Free Consultation
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <a href="#home">
-                        <img src="https://i.postimg.cc/C5t2k2Rh/IMG-0038.png" alt="NOVUS Solutions" class="footer-logo">
+            <div class="footer-grid-layout">
+                <div class="footer-brand-info">
+                    <a href="#home" class="logo-frame">
+                        <img src="https://i.postimg.cc/C5t2k2Rh/IMG-0038.png" alt="NOVUS Solutions Minimal Branding Footer Logo">
                     </a>
-                    <p class="footer-text">Transforming ideas into digital reality through innovation and excellence</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.95718 14.8821 3.28444C14.0247 3.6117 13.2884 4.19439 12.773 4.95372C12.2575 5.71305 11.9877 6.61232 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39545C5.36074 6.60508 4.01032 5.43864 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.0989 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
+                    <p>Engineering responsive digital transformation instances, lightweight custom code blocks, and high-frequency cloud interface engines with extreme operational precision.</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <div class="footer-contact">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#6cccbd" stroke-width="2"/>
-                            <path d="M22 6L12 13L2 6" stroke="#6cccbd" stroke-width="2"/>
-                        </svg>
-                        <a href="mailto:alsoftware@gmail.com">alsoftware@gmail.com</a>
-                    </div>
-                    <div class="footer-contact">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                            <path d="M22 16.92V19.92C22 21.42 20.82 22.62 19.32 22.62C8.85 22.03 1.38 14.56 0.79 4.08C0.79 2.58 1.98 1.38 3.48 1.38H6.48C7.83 1.38 8.94 2.4 9.05 3.73C9.23 5.66 9.69 7.55 10.43 9.33C10.83 10.25 10.61 11.34 9.9 12.04L8.07 13.87C9.91 17.48 13.52 21.09 17.13 22.93L18.96 21.1C19.66 20.39 20.75 20.17 21.67 20.57C23.45 21.31 25.34 21.77 27.27 21.95C28.6 22.06 29.62 23.17 29.62 24.52V24.52Z" stroke="#6cccbd" stroke-width="2"/>
-                        </svg>
-                        <a href="tel:+918879706046">+91 8879706046</a>
-                    </div>
-                    <div class="footer-contact">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                            <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="#6cccbd" stroke-width="2"/>
-                        </svg>
-                        <a href="https://wa.me/918879706046">WhatsApp</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#home">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="#why-us">Why Us</a>
-                    <a href="#process">Our Process</a>
-                    <a href="#" onclick="openContactModal(); return false;">Get Started</a>
+                <div class="footer-connections-links">
+                    <h4>Direct Intercom Channels</h4>
+                    <ul>
+                        <li><a href="mailto:alsoftware@gmail.com">alsoftware@gmail.com</a></li>
+                        <li><a href="https://wa.me/918879706046" target="_blank">Direct Developer WhatsApp Core Route</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 NOVUS Solutions. All rights reserved.</p>
-                <p>Designed with precision by NOVUS</p>
+            <div class="footer-bottom-baseline">
+                <p>© 2026 NOVUS Solutions. All operations certified.</p>
+                <p>Next-Gen High-End Software Engineering Matrix Architecture</p>
             </div>
         </div>
     </footer>
 
-    <!-- Contact Modal (Full Screen) -->
-    <div class="contact-modal" id="contactModal">
-        <div class="modal-overlay" onclick="closeContactModal()"></div>
-        <div class="modal-container">
-            <button class="modal-close-btn" onclick="closeContactModal()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
+    <div id="intakeModal" class="modal-overlay-node">
+        <div class="modal-fluid-container">
+            <button class="modal-close-trigger" onclick="closeIntakeWizard()">×</button>
             
-            <div class="modal-header">
-                <h2>Start Your Project</h2>
-                <p>Tell us about your requirements and we'll get back to you within 24 hours</p>
+            <div id="fluidAlertPanel" class="fluid-alert-banner">Anomaly Alert Indicator Response Text</div>
+
+            <div id="wizardInterfaceContent">
+                <div class="wizard-progress-strip">
+                    <div class="progress-indicator-text active" id="pill1">01 Client Profile</div>
+                    <div class="progress-indicator-text" id="pill2">02 Project Scope</div>
+                    <div class="progress-indicator-text" id="pill3">03 Tech Matrix</div>
+                </div>
+
+                <form id="productionDataWireForm" onsubmit="transmitPayloadToPipeline(event)" novalidate>
+                    
+                    <div class="form-step-node active" id="page1">
+                        <div class="step-segment-header-title">Client Identification Metrics</div>
+                        <div class="form-structural-row">
+                            <div class="input-group-element">
+                                <label>Full Name *</label>
+                                <input type="text" id="fullName" placeholder="e.g. Anas Lila">
+                            </div>
+                            <div class="input-group-element">
+                                <label>Email Coordinates *</label>
+                                <input type="email" id="email" placeholder="e.g. contact@domain.com">
+                            </div>
+                        </div>
+                        <div class="form-structural-row">
+                            <div class="input-group-element">
+                                <label>Primary Mobile Line *</label>
+                                <input type="tel" id="phone" placeholder="10 Digits (e.g. 8879706046)">
+                            </div>
+                            <div class="input-group-element">
+                                <label>Company / Corporate Identity</label>
+                                <input type="text" id="companyName" placeholder="e.g. AL Software">
+                            </div>
+                        </div>
+                        <div class="form-structural-row">
+                            <div class="input-group-element">
+                                <label>Executive Job Designation</label>
+                                <input type="text" id="designation" placeholder="e.g. Vice President">
+                            </div>
+                            <div class="input-group-element">
+                                <label>Preferred Contact Channel *</label>
+                                <div class="typeable-dropdown-wrapper" data-enforce="true">
+                                    <input type="text" id="preferredContact" class="typeable-input-element" placeholder="Choose connection method..." autocomplete="off">
+                                    <span class="dropdown-caret-marker">▼</span>
+                                    <div class="dropdown-floating-list-panel">
+                                        <div class="dropdown-option-row-item" data-select="WhatsApp">WhatsApp</div>
+                                        <div class="dropdown-option-row-item" data-select="Email">Email</div>
+                                        <div class="dropdown-option-row-item" data-select="Phone Call">Phone Call</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-step-node" id="page2">
+                        <div class="step-segment-header-title">System Allocation Parameters</div>
+                        <div class="form-structural-row">
+                            <div class="input-group-element">
+                                <label>Project Target Class</label>
+                                <div class="typeable-dropdown-wrapper" data-enforce="false">
+                                    <input type="text" id="projectFor" class="typeable-input-element" placeholder="Type custom or select target..." autocomplete="off">
+                                    <span class="dropdown-caret-marker">▼</span>
+                                    <div class="dropdown-floating-list-panel">
+                                        <div class="dropdown-option-row-item" data-select="Company Business Operations">Company Business Operations</div>
+                                        <div class="dropdown-option-row-item" data-select="Personal Utility / Private Application">Personal Utility / Private Application</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group-element">
+                                <label>Enterprise Scale (Personnel Headcount)</label>
+                                <div class="typeable-dropdown-wrapper" data-enforce="false">
+                                    <input type="text" id="companySize" class="typeable-input-element" placeholder="Choose or type company scale..." autocomplete="off">
+                                    <span class="dropdown-caret-marker">▼</span>
+                                    <div class="dropdown-floating-list-panel">
+                                        <div class="dropdown-option-row-item" data-select="1 - 10 Personnel Staff">1 - 10 Personnel Staff</div>
+                                        <div class="dropdown-option-row-item" data-select="10 - 50 Personnel Staff">10 - 50 Personnel Staff</div>
+                                        <div class="dropdown-option-row-item" data-select="Above 50 Operational Employees">Above 50 Operational Employees</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-structural-row">
+                            <div class="input-group-element">
+                                <label>Software Framework Type</label>
+                                <div class="typeable-dropdown-wrapper" data-enforce="false">
+                                    <input type="text" id="projectType" class="typeable-input-element" placeholder="Type custom or select framework..." autocomplete="off">
+                                    <span class="dropdown-caret-marker">▼</span>
+                                    <div class="dropdown-floating-list-panel">
+                                        <div class="dropdown-option-row-item" data-select="Custom Web Application Framework">Custom Web Application Framework</div>
+                                        <div class="dropdown-option-row-item" data-select="Business ERP Software Management Board">Business ERP Software Management Board</div>
+                                        <div class="dropdown-option-row-item" data-select="CRM Sales Client Tracking Platform">CRM Sales Client Tracking Platform</div>
+                                        <div class="dropdown-option-row-item" data-select="UI/UX Wireframe Visual Interface System">UI/UX Wireframe Visual Interface System</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group-element">
+                                <label>Target Estimated Investment Allocation *</label>
+                                <div class="typeable-dropdown-wrapper" data-enforce="false">
+                                    <input type="text" id="budget" class="typeable-input-element" placeholder="Type or select value curve..." autocomplete="off">
+                                    <span class="dropdown-caret-marker">▼</span>
+                                    <div class="dropdown-floating-list-panel">
+                                        <div class="dropdown-option-row-item" data-select="₹25,000 - ₹50,000">₹25,000 - ₹50,000</div>
+                                        <div class="dropdown-option-row-item" data-select="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</div>
+                                        <div class="dropdown-option-row-item" data-select="₹1,00,000 - ₹2,00,000">₹1,00,000 - ₹2,00,000</div>
+                                        <div class="dropdown-option-row-item" data-select="Above ₹5,00,000 Enterprise">Above ₹5,00,000 Enterprise</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-structural-row">
+                            <div class="input-group-element">
+                                <label>Target Delivery Roadmap *</label>
+                                <div class="typeable-dropdown-wrapper" data-enforce="false">
+                                    <input type="text" id="timeline" class="typeable-input-element" placeholder="Choose delivery roadmap velocity..." autocomplete="off">
+                                    <span class="dropdown-caret-marker">▼</span>
+                                    <div class="dropdown-floating-list-panel">
+                                        <div class="dropdown-option-row-item" data-select="1 Month Launch Sprint">1 Month Launch Sprint</div>
+                                        <div class="dropdown-option-row-item" data-select="2-3 Months Architecture Cycle">2-3 Months Architecture Cycle</div>
+                                        <div class="dropdown-option-row-item" data-select="Extended Development Roadmap">Extended Development Roadmap</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group-element">
+                                <label>Traffic Reference Channel Source</label>
+                                <input type="text" id="referralSource" placeholder="e.g. LinkedIn, Google Search, Professional Colleague">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-step-node" id="page3">
+                        <div class="step-segment-header-title">Technical Infrastructure Blueprint Configs</div>
+                        <div class="form-structural-row">
+                            <div class="input-group-element">
+                                <label>Active DNS Domain Registered?</label>
+                                <div class="typeable-dropdown-wrapper" data-enforce="false">
+                                    <input type="text" id="domainPurchased" class="typeable-input-element" placeholder="Choose domain cluster configuration status..." autocomplete="off">
+                                    <span class="dropdown-caret-marker">▼</span>
+                                    <div class="dropdown-floating-list-panel">
+                                        <div class="dropdown-option-row-item" data-select="No, Setup Help Required">No, Setup Help Required</div>
+                                        <div class="dropdown-option-row-item" data-select="Yes, Already Registered">Yes, Already Registered</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group-element">
+                                <label>Target Web Domain URL Address String</label>
+                                <input type="text" id="domainName" placeholder="e.g. www.yourcompanyname.com">
+                            </div>
+                        </div>
+                        <div class="form-structural-row">
+                            <div class="input-group-element">
+                                <label>Dedicated Web Hosting Node Cluster Required?</label>
+                                <div class="typeable-dropdown-wrapper" data-enforce="false">
+                                    <input type="text" id="hostingRequired" class="typeable-input-element" placeholder="Select architecture hosting instance plan..." autocomplete="off">
+                                    <span class="dropdown-caret-marker">▼</span>
+                                    <div class="dropdown-floating-list-panel">
+                                        <div class="dropdown-option-row-item" data-select="Yes, Provide Dedicated Hosting Node">Yes, Provide Dedicated Hosting Node</div>
+                                        <div class="dropdown-option-row-item" data-select="No, Dynamic Static Serverless Plan">No, Dynamic Static Serverless Plan</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group-element">
+                                <label>Target Development Code Base Preferred Language Stack</label>
+                                <input type="text" id="technicalRequirements" placeholder="e.g. Production Lightweight ES6 Core Applications">
+                            </div>
+                        </div>
+                        <div class="input-group-element-full">
+                            <label>Comprehensive Breakdown of Functional Criteria Rules Matrix *</label>
+                            <textarea id="projectDescription" rows="3" placeholder="Provide step-by-step documentation detailing what the software instance needs to calculate and track..."></textarea>
+                        </div>
+                        <div class="input-group-element-full">
+                            <label>UI Theme Layout & Color Curve Settings Preferences</label>
+                            <input type="text" id="designPreferences" placeholder="e.g. Minimal Soft Canvas White with Smooth Fluid Gradient Rounded Cards Style">
+                        </div>
+                        <div class="input-group-element-full">
+                            <label>Extra Development Scope / Custom Columns Schema Design Log Notes</label>
+                            <textarea id="additionalNotes" rows="2" placeholder="Declare any additional features, unique constraints, or notes here..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="wizard-action-row">
+                        <button type="button" class="btn-fluid btn-sec" id="wizardBackBtn" onclick="toggleWizardStepDirection(-1)" style="visibility: hidden;">Back</button>
+                        <button type="button" class="btn-fluid btn-prime" id="wizardNextBtn" onclick="toggleWizardStepDirection(1)">Next Step</button>
+                        <button type="submit" class="btn-fluid btn-prime" id="wizardSubmitBtn" style="display: none;">Transmit Payload Array</button>
+                    </div>
+                </form>
             </div>
 
-            <form class="contact-form" id="contactForm">
-                <!-- Form will be loaded via script.js -->
-            </form>
+            <div id="fluidSuccessDashboardPanel" class="success-panel-overlay">
+                <div class="success-lottie-mock-icon">✓</div>
+                <h3>Payload Core Transmitted Safely!</h3>
+                <p>Your technical requirements blueprint matrix data array has been committed to the synchronized Google sheets background cluster webapp node destination successfully.</p>
+                <button onclick="closeIntakeWizard()" class="btn-fluid btn-prime">Return to Active Terminal Console</button>
+            </div>
+
         </div>
     </div>
 
-    <!-- Success Modal -->
-    <div class="success-modal" id="successModal">
-        <div class="modal-overlay" onclick="closeSuccessModal()"></div>
-        <div class="success-content">
-            <div class="success-icon">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                    <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.7088 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#6cccbd" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M22 4L12 14.01L9 11.01" stroke="#6cccbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <h2>Thank You!</h2>
-            <p>Your inquiry has been submitted successfully. We'll get back to you within 24 hours with a detailed proposal.</p>
-            <button class="btn btn-primary" onclick="closeSuccessModal()">Close</button>
-        </div>
-    </div>
+    <script>
+        const CORE_WEBAPP_ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbzBzxxDLKcB2SmnoA62h6tSlbz1cIHEyhbIZ7W7YkwE5zBRjwbpdj2USOEmfyCHu1jXHA/exec';
 
-    <script src="script.js"></script>
+        let activeStepPageIndex = 1;
+        const terminalMaxStepLimit = 3;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initHeaderScrollEngine();
+            initTypeableSearchDropdownEngine();
+            initPWAInstallAutomationEngine();
+            
+            const cellInputField = document.getElementById('phone');
+            if (cellInputField) {
+                cellInputField.addEventListener('input', function() {
+                    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+                });
+            }
+        });
+
+        function initHeaderScrollEngine() {
+            window.addEventListener('scroll', () => {
+                const headerNode = document.querySelector('.header');
+                if (window.scrollY > 40) {
+                    headerNode.classList.add('scrolled');
+                } else {
+                    headerNode.classList.remove('scrolled');
+                }
+            });
+        }
+
+        function initTypeableSearchDropdownEngine() {
+            const dropdownWrapperNodes = document.querySelectorAll('.typeable-dropdown-wrapper');
+            
+            dropdownWrapperNodes.forEach(wrapper => {
+                const searchInputElement = wrapper.querySelector('.typeable-input-element');
+                const floatingListPanelNode = wrapper.querySelector('.dropdown-floating-list-panel');
+                const filterOptionItemNodes = wrapper.querySelectorAll('.dropdown-option-row-item');
+                
+                searchInputElement.addEventListener('focus', () => {
+                    dismissAllActiveFloatingListsExcept(floatingListPanelNode);
+                    floatingListPanelNode.style.display = 'block';
+                    evaluateInlineOptionFilterMatches(searchInputElement, filterOptionItemNodes);
+                });
+
+                wrapper.addEventListener('click', (clickPropagationEvent) => {
+                    clickPropagationEvent.stopPropagation();
+                    if (floatingListPanelNode.style.display !== 'block') {
+                        dismissAllActiveFloatingListsExcept(floatingListPanelNode);
+                        floatingListPanelNode.style.display = 'block';
+                        evaluateInlineOptionFilterMatches(searchInputElement, filterOptionItemNodes);
+                    }
+                });
+
+                searchInputElement.addEventListener('input', () => {
+                    floatingListPanelNode.style.display = 'block';
+                    evaluateInlineOptionFilterMatches(searchInputElement, filterOptionItemNodes);
+                });
+
+                filterOptionItemNodes.forEach(item => {
+                    item.addEventListener('click', (itemSelectionTriggerEvent) => {
+                        itemSelectionTriggerEvent.stopPropagation();
+                        searchInputElement.value = item.getAttribute('data-select');
+                        floatingListPanelNode.style.display = 'none';
+                        dismissActiveIntakeAlert();
+                    });
+                });
+            });
+
+            document.addEventListener('click', () => {
+                dismissAllActiveFloatingListsExcept(null);
+            });
+        }
+
+        function evaluateInlineOptionFilterMatches(inputFieldNode, itemOptionsArray) {
+            const sanitisedSearchQuery = inputFieldNode.value.toLowerCase().trim();
+            itemOptionsArray.forEach(item => {
+                const embeddedOptionValueString = item.getAttribute('data-select').toLowerCase();
+                item.style.display = embeddedOptionValueString.includes(sanitisedSearchQuery) ? 'block' : 'none';
+            });
+        }
+
+        function dismissAllActiveFloatingListsExcept(currentlyActivePanelInstance) {
+            document.querySelectorAll('.dropdown-floating-list-panel').forEach(panel => {
+                if (panel !== currentlyActivePanelInstance) { panel.style.display = 'none'; }
+            });
+        }
+
+        function emitIntakeValidationAlert(alertNotificationString) {
+            const fluidAlertBarNode = document.getElementById('fluidAlertPanel');
+            fluidAlertBarNode.textContent = alertNotificationString;
+            fluidAlertBarNode.style.display = 'block';
+            document.getElementById('intakeModal').querySelector('.modal-fluid-container').scrollTop = 0;
+        }
+
+        function dismissActiveIntakeAlert() {
+            document.getElementById('fluidAlertPanel').style.display = 'none';
+        }
+
+        function openIntakeWizard() {
+            document.getElementById('intakeModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('wizardInterfaceContent').style.display = 'block';
+            document.getElementById('fluidSuccessDashboardPanel').style.display = 'none';
+            dismissActiveIntakeAlert();
+            activeStepPageIndex = 1;
+            recalculateWizardStepperViewState();
+        }
+
+        function closeIntakeWizard() {
+            document.getElementById('intakeModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function toggleWizardStepDirection(wizardDirectionModifier) {
+            dismissActiveIntakeAlert();
+            dismissAllActiveFloatingListsExcept(null);
+            
+            if (wizardDirectionModifier === 1) {
+                if (activeStepPageIndex === 1) {
+                    const fullNameInput = document.getElementById('fullName').value.trim();
+                    const emailInput = document.getElementById('email').value.trim();
+                    const cellPhoneInput = document.getElementById('phone').value.trim();
+                    const chosenContactMethod = document.getElementById('preferredContact').value.trim();
+                    
+                    if (!fullNameInput) { return emitIntakeValidationAlert('Corporate identity validation failure: Please provide your full name string.'); }
+                    if (!emailInput || !emailInput.includes('@')) { return emitIntakeValidationAlert('Data matrix entry error: A valid email destination path route is mandatory.'); }
+                    if (cellPhoneInput.length !== 10) { return emitIntakeValidationAlert('Data matrix entry error: Mobile phone must contain exactly 10 digits un-prefixed.'); }
+                    
+                    const authorizedStrictOptionNodes = ['whatsapp', 'email', 'phone call'];
+                    if (!chosenContactMethod || !authorizedStrictOptionNodes.includes(chosenContactMethod.toLowerCase())) {
+                        return emitIntakeValidationAlert('Field selection constraint violation: You must choose an active interaction path from the available dropdown option indexes.');
+                    }
+                }
+                
+                if (activeStepPageIndex === 2) {
+                    const classSegmentValue = document.getElementById('projectFor').value.trim();
+                    const targetFrameworkType = document.getElementById('projectType').value.trim();
+                    const assignedValueBudget = document.getElementById('budget').value.trim();
+                    const timelineVelocityMap = document.getElementById('timeline').value.trim();
+
+                    if (!classSegmentValue) { return emitIntakeValidationAlert('Target allocation exception: Select or input a project classification segment marker.'); }
+                    if (!targetFrameworkType) { return emitIntakeValidationAlert('Target allocation exception: State your required software framework application execution architecture type.'); }
+                    if (!assignedValueBudget) { return emitIntakeValidationAlert('Validation exception: Assign a projected investment target scale level tier block.'); }
+                    if (!timelineVelocityMap) { return emitIntakeValidationAlert('Validation exception: Choose an expected completion sprint delivery velocity timeline.'); }
+                }
+            }
+
+            activeStepPageIndex += wizardDirectionModifier;
+            recalculateWizardStepperViewState();
+        }
+
+        function recalculateWizardStepperViewState() {
+            for (let i = 1; i <= terminalMaxStepLimit; i++) {
+                const sectionContainerNode = document.getElementById(`page${i}`);
+                const wizardIndicatorPillNode = document.getElementById(`pill${i}`);
+                
+                if (i === activeStepPageIndex) {
+                    sectionContainerNode.classList.add('active');
+                    wizardIndicatorPillNode.classList.add('active');
+                } else {
+                    sectionContainerNode.classList.remove('active');
+                    wizardIndicatorPillNode.classList.remove('active');
+                }
+            }
+
+            const backActionBtn = document.getElementById('wizardBackBtn');
+            const nextActionBtn = document.getElementById('wizardNextBtn');
+            const masterSubmitActionBtn = document.getElementById('wizardSubmitBtn');
+
+            backActionBtn.style.visibility = activeStepPageIndex === 1 ? 'hidden' : 'visible';
+
+            if (activeStepPageIndex === terminalMaxStepLimit) {
+                nextActionBtn.style.display = 'none';
+                masterSubmitActionBtn.style.display = 'inline-flex';
+            } else {
+                nextActionBtn.style.display = 'inline-flex';
+                masterSubmitActionBtn.style.display = 'none';
+            }
+        }
+
+        function initPWAInstallAutomationEngine() {
+            let interceptorAppInstallPromptHook = null;
+            const runtimeActivationBtn = document.getElementById('pwaInstallSystemBtn');
+
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js')
+                    .then(() => console.log('Next-Gen Service Worker system cluster interface operational layer synchronized.'))
+                    .catch(swRegErr => console.error('Ecosystem cache mapping breakdown registration crashed:', swRegErr));
+            }
+
+            window.addEventListener('beforeinstallprompt', (promptEvent) => {
+                promptEvent.preventDefault();
+                interceptorAppInstallPromptHook = promptEvent;
+                if (runtimeActivationBtn) { runtimeActivationBtn.style.display = 'inline-flex'; }
+            });
+
+            if (runtimeActivationBtn) {
+                runtimeActivationBtn.addEventListener('click', async () => {
+                    if (!interceptorAppInstallPromptHook) {
+                        alert('Application ecosystem sandbox engine instance is already caching locally or operating natively.');
+                        return;
+                    }
+                    interceptorAppInstallPromptHook.prompt();
+                    const promptResolutionMetric = await interceptorAppInstallPromptHook.userChoice;
+                    if (promptResolutionMetric.outcome === 'accepted') {
+                        console.log('User initialized client standalone deployment sandbox success metrics loop.');
+                    }
+                    interceptorAppInstallPromptHook = null;
+                });
+            }
+        }
+
+        async function transmitPayloadToPipeline(formSubmitTriggerEvent) {
+            formSubmitTriggerEvent.preventDefault();
+            dismissActiveIntakeAlert();
+            dismissAllActiveFloatingListsExcept(null);
+
+            const featureCriteriaDocumentation = document.getElementById('projectDescription').value.trim();
+            if (!featureCriteriaDocumentation || featureCriteriaDocumentation.length < 10) {
+                return emitIntakeValidationAlert('Requirements analysis exception: Please construct a functional project explanation description (Minimum 10 characters).');
+            }
+
+            const activeProcessingSubmitBtn = document.getElementById('wizardSubmitBtn');
+            
+            const unifiedDataTransmissionPayload = {
+                fullName: document.getElementById('fullName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value,
+                companyName: document.getElementById('companyName').value.trim() || 'N/A',
+                projectFor: document.getElementById('projectFor').value.trim(),
+                companySize: document.getElementById('companySize').value.trim() || 'N/A',
+                designation: document.getElementById('designation').value.trim() || 'N/A',
+                projectType: document.getElementById('projectType').value.trim(),
+                projectDescription: featureCriteriaDocumentation,
+                budget: document.getElementById('budget').value.trim(),
+                timeline: document.getElementById('timeline').value.trim(),
+                domainPurchased: document.getElementById('domainPurchased').value.trim() || 'N/A',
+                domainName: document.getElementById('domainName').value.trim() || 'N/A',
+                hostingRequired: document.getElementById('hostingRequired').value.trim() || 'N/A',
+                technicalRequirements: document.getElementById('technicalRequirements').value.trim() || 'N/A',
+                designPreferences: document.getElementById('designPreferences').value.trim() || 'N/A',
+                additionalNotes: document.getElementById('additionalNotes').value.trim() || 'N/A',
+                referralSource: document.getElementById('referralSource').value.trim() || 'N/A',
+                preferredContact: document.getElementById('preferredContact').value.trim()
+            };
+
+            activeProcessingSubmitBtn.disabled = true;
+            activeProcessingSubmitBtn.innerText = 'Syncing Matrix Channels...';
+
+            try {
+                await fetch(CORE_WEBAPP_ENDPOINT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(unifiedDataTransmissionPayload)
+                });
+
+                document.getElementById('wizardInterfaceContent').style.display = 'none';
+                document.getElementById('fluidSuccessDashboardPanel').style.display = 'flex';
+                document.getElementById('productionDataWireForm').reset();
+            } catch (networkInterfaceConduitDropException) {
+                console.error('Data wire synchronization transmission failed drop error:', networkInterfaceConduitDropException);
+                emitIntakeValidationAlert('Network routing interface error: Pipeline transmission cross-origin handshake drop timeout. Verify micro endpoints macros scripts maps configuration layouts.');
+                activeProcessingSubmitBtn.disabled = false;
+                activeProcessingSubmitBtn.innerText = 'Transmit Payload Array';
+            }
+        }
+    </script>
 </body>
 </html>
